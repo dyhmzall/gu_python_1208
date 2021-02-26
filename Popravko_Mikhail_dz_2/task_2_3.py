@@ -1,4 +1,7 @@
 """
+3. *(вместо задачи 2) Решить задачу 2 не создавая новый список (как говорят, in place).
+Эта задача намного серьёзнее, чем может сначала показаться.
+
 2. Дан список:
 ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
 Необходимо его обработать — обособить каждое целое число (вещественные не трогаем) кавычками
@@ -13,38 +16,49 @@
 Главное: дополнить числа до двух разрядов нулём!
 """
 
-words = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
-print(words)
+words_list = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
+print(words_list)
 
-transformed_words = list()
+index = 0
 
-for element in words:
+while True:
 
-    transformed_element = element.strip('+-')
+    element = words_list[index]
+    element = element.strip('+-')
 
-    if transformed_element.isdigit():
-        transformed_words.append('"')
-        transformed_words.append(element.replace(transformed_element, transformed_element.zfill(2)))
-        transformed_words.append('"')
+    if element.isdigit():
+
+        if index == 0:  # если массив начинается с цифры - сместим массив, чтобы влезла левая скобка
+            words_list.insert(index, '')
+            index += 1
+
+        words_list[index] = words_list[index].replace(element, element.zfill(2))
+        words_list.insert(index, '"')
+        words_list.insert(index + 2, '"')
+
+        index += 2  # так как мы вставили 2 элемента, индекс смещаем на 2 в дополнение к каждому шагу
+
+    if index < len(words_list) - 1:
+        index += 1  # перебираем индексы
     else:
-        transformed_words.append(element)
+        break
 
-print(transformed_words)
+print(words_list)
 
 
 # Сформировать из обработанного списка строку
-words_for_line = list()  # будем собирать слова в массив, экономим память
+transformed_words_list = list()  # будем собирать слова в массив, экономим память
 word_in_brackets = False  # флаг того, что скобки открылись
 
-for element in transformed_words:
-    words_for_line.append(element)
+for element in words_list:
+    transformed_words_list.append(element)
 
     if element == '"':
         word_in_brackets = not word_in_brackets  # мы должны понимать, открылась ли скобка, или закрылась
 
     if not word_in_brackets:
-        words_for_line.append(" ")  # добавляем пробел Только когда мы не внутри скобок
+        transformed_words_list.append(" ")  # добавляем пробел Только когда мы не внутри скобок
 
-line = ''.join(words_for_line)
+line = ''.join(transformed_words_list)
 
 print(line)
