@@ -34,24 +34,23 @@ def currency_rates(currency=CURRENCY_USD):
 
     doc = minidom.parseString(content)
 
-    for element in doc.getElementsByTagName('Valute'):
-        code = element.getElementsByTagName('CharCode')[0].firstChild.nodeValue
-        value = element.getElementsByTagName('Value')[0].firstChild.nodeValue
+    for element in doc.getElementsByTagName("Valute"):
+        code = element.getElementsByTagName("CharCode")[0].firstChild.nodeValue
+        value = element.getElementsByTagName("Value")[0].firstChild.nodeValue
 
         if code == currency:
-            return float(value.replace(',', '.'))
+            return float(value.replace(",", "."))
 
 
 for currency in [
     CURRENCY_USD,
     CURRENCY_EUR,
     CURRENCY_CNY,
-    'usd',
-    'non',
+    "usd",
+    "non",
 ]:
     rate = currency_rates(currency)
     if rate:
         print(f"Курс валюты '{currency}' составляет {rate} {CURRENCY_RUB}")
     else:
         print(f"Курс для валюты '{currency}' не найден")
-
