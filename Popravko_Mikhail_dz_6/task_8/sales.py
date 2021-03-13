@@ -20,8 +20,6 @@ def get_summa_for_show(from_number, to_number):
 
 
 def edit_summa(summa_number, summa_new):
-    print(summa_number, summa_new)
-
     with open(SUMMA_FILENAME, "r+", encoding="utf-8") as f:
 
         i = 1  # счетчик, показывает, какая по счету текущая строка
@@ -31,11 +29,17 @@ def edit_summa(summa_number, summa_new):
                 exit(1)  # ситуация, когда указали неверный номер
             if i == summa_number:
                 f.seek(f.tell() - len(summa) - 1)  # установим курсок на начало строки
-                f.write(summa_new + "\n")
-                # если мы перетерли не все данные, заполним старые данные пробелами
-                # например если было 1000.00 а пишем 10.00
-                diff = len(summa) - len(summa_new)
+                f.write(summa_new)
+
+                diff = len(summa) - len(summa_new) - 1
                 if diff > 0:
+                    # если мы перетерли не все данные, заполним старые данные пробелами
+                    # например если было 1000.00 а пишем 10.00
                     f.write(' ' * diff)
+                else:
+                    # обратная ситуация пока не обрабатывается
+                    pass
+
+                f.write("\n")
                 break
             i += 1
