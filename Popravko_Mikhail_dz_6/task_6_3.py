@@ -17,14 +17,14 @@
 """
 import json
 
-USERS_FILENAME = 'users.csv'
-HOBBIES_FILENAME = 'hobby.csv'
-INFO_FILENAME = 'info.json'
+USERS_FILENAME = "task_3/users.csv"
+HOBBIES_FILENAME = "task_3/hobby.csv"
+INFO_FILENAME = "task_3/info.json"
 
 
 def get_lines_from_file(filename):
     """Прочитать файл и вернуть массив строк"""
-    with open(filename, 'r', encoding='utf-8') as f:
+    with open(filename, "r", encoding="utf-8") as f:
         return list(map(lambda x: x.strip(), f.readlines()))
 
 
@@ -35,13 +35,13 @@ def make_info(users, hobbies):
 
 def save_info(filename, info):
     """Сохранить словать с данными пользователя в файл"""
-    with open(filename, 'w', encoding='utf-8') as f:
+    with open(filename, "w", encoding="utf-8") as f:
         json.dump(info, f)
 
 
 def get_info(filename):
     """Получить словать с данными пользователя из файла"""
-    with open(filename, 'r', encoding='utf-8') as f:
+    with open(filename, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -65,4 +65,4 @@ print("Информация из файла JSON: ", new_info)
 
 print("Проверка, что данные - это словарь:")
 for key, value in new_info.items():
-    print(key, value, sep=' - ')
+    print(key, value, sep=" - ")
