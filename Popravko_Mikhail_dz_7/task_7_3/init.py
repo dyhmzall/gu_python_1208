@@ -1,23 +1,14 @@
 """
-1. Написать скрипт, создающий стартер (заготовку) для проекта со следующей структурой папок:
-|--my_project
-   |--settings
-   |--mainapp
-   |--adminapp
-   |--authapp
-
-Примечание: подумайте о ситуации, когда некоторые папки уже есть на диске (как быть?);
-как лучше хранить конфигурацию этого стартера, чтобы в будущем можно было менять имена папок под конкретный проект;
-можно ли будет при этом расширять конфигурацию и хранить данные о вложенных папках и файлах (добавлять детали)?
+создание директорий для задачи 3 домашнего задания
 """
 
 import json
 import os
 
-CONFIG_FILE = r"task_7_1\starter.config.json"
+CONFIG_FILE = "starter.config.json"
 CONFIG_TYPE_FILE = "file"
 CONFIG_TYPE_DIR = "dir"
-CONFIG_ROOT_DIR = "task_7_1"
+CONFIG_ROOT_DIR = ""
 
 
 def get_starter_config(config_filename):
