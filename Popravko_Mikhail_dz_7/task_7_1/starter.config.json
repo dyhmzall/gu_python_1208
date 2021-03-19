@@ -1,0 +1,28 @@
+[
+  {
+    "name": "my_project",
+    "type": "dir",
+    "items": [
+      {
+        "name": "settings",
+        "type": "dir",
+        "items": []
+      },
+      {
+        "name": "mainapp",
+        "type": "dir",
+        "items": []
+      },
+      {
+        "name": "adminapp",
+        "type": "dir",
+        "items": []
+      },
+      {
+        "name": "authapp",
+        "type": "dir",
+        "items": []
+      }
+    ]
+  }
+]
