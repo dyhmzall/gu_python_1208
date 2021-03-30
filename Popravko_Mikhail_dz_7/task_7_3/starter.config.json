@@ -1,0 +1,102 @@
+[
+  {
+    "name": "my_project",
+    "type": "dir",
+    "items": [
+      {
+        "name": "settings",
+        "type": "dir",
+        "items": [
+          {
+            "name": "__init__.py",
+            "type": "file"
+          },
+          {
+            "name": "dev.py",
+            "type": "file"
+          },
+          {
+            "name": "prod.py",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "mainapp",
+        "type": "dir",
+        "items": [
+          {
+            "name": "__init__.py",
+            "type": "file"
+          },
+          {
+            "name": "models.py",
+            "type": "file"
+          },
+          {
+            "name": "views.py",
+            "type": "file"
+          },
+          {
+            "name": "templates",
+            "type": "dir",
+            "items": [
+              {
+                "name": "mainapp",
+                "type": "dir",
+                "items": [
+                  {
+                    "name": "base.html",
+                    "type": "file"
+                  },
+                  {
+                    "name": "index.html",
+                    "type": "file"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "authapp",
+        "type": "dir",
+        "items": [
+          {
+            "name": "__init__.py",
+            "type": "file"
+          },
+          {
+            "name": "models.py",
+            "type": "file"
+          },
+          {
+            "name": "views.py",
+            "type": "file"
+          },
+          {
+            "name": "templates",
+            "type": "dir",
+            "items": [
+              {
+                "name": "authapp",
+                "type": "dir",
+                "items": [
+                  {
+                    "name": "base.html",
+                    "type": "file"
+                  },
+                  {
+                    "name": "index.html",
+                    "type": "file"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
