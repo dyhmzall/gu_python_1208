@@ -1,0 +1,3 @@
+calc_cube(10: <class 'int'>) -> 1000 <class 'int'>
+calc_pow(5: <class 'int'>, 2: <class 'int'>) -> 25 <class 'int'>
+calc_pow(x:7: <class 'int'>, y:3: <class 'int'>) -> 343 <class 'int'>
