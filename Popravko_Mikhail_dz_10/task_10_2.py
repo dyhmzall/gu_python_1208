@@ -47,6 +47,21 @@ class Suit(Clothes):
         return 2 * self.height + 0.3
 
 
+class MaterialSum:
+    def __init__(self):
+        self.clothes = []
+
+    def add(self, clothes):
+        self.clothes.append(clothes)
+
+    @property
+    def total(self):
+        summa = 0
+        for item in self.clothes:
+            summa += item.material
+        return f"{summa}"
+
+
 coat_1 = Coat('coat_1', 65)
 coat_2 = Coat('coat_2', 130)
 
@@ -58,4 +73,10 @@ print(coat_2)
 print(suit_1)
 print(suit_2)
 
-print("Всего: ", coat_1.material + coat_2.material + suit_1.material + suit_2.material)
+material_sum = MaterialSum()
+material_sum.add(coat_1)
+material_sum.add(coat_2)
+material_sum.add(suit_1)
+material_sum.add(suit_2)
+
+print("Всего: ", material_sum.total)
